@@ -1,11 +1,13 @@
 import { Header } from './components/header/Header';
-// import { HangmanImg } from './components/hangmanImg/Hangman';
+import { Scoreboard } from './components/scoreboard/Scoreboard';
+import { Hangman } from './components/hangmanImg/HangmanImg';
 
 function App() {
   return (
     <>
       <Header />
-      {/* <HangmanImg /> */}
+      <Scoreboard />
+      <Hangman/>
     </>
     
   );

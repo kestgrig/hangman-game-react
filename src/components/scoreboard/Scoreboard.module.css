@@ -1,0 +1,11 @@
+.mainScoreboard {
+    color: white;
+}
+
+p:nth-child(2) {
+    color: rgb(19, 246, 19);
+}
+
+p:nth-child(3) {
+    color: rgba(246, 19, 19, 0.878);
+}
