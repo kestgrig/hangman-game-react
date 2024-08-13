@@ -1,0 +1,23 @@
+.mainHeader {
+    display: flex;
+    height: 40px;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.mainGallows {
+    display: flex;
+    width: 200px;
+    height: 100%;
+}
+
+.gallowslogo {
+    width: 100%;
+    height: 100%;
+}
+
+.logo {
+    width: 100%;
+    height: 100%;
+}
