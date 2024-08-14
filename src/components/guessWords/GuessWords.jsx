@@ -1,14 +1,19 @@
 import style from "./GuessWords.module.css";
 
-export function GuessWords(params) {
-    const word = 'lithuania'
+export function GuessWords({selectedWord, correctLetters}) {
     return (
-        <div className={style.lettercontainer}>
-            {word.split("").map((letter, index) => 
-                <span key={index}>
-                {params.data.includes(letter)}
-                </span> 
-            )}
+        <div className={style.word}>
+            {selectedWord.split('').map((letter, index) => {
+                return (
+                    <span className={style.letter} key={index}>
+                    {correctLetters.includes(letter)
+                        ? letter
+                        : ''
+                    }
+                    </span>
+                ) 
+            })}
         </div>
     );
 }
+
