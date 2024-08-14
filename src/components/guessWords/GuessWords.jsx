@@ -1,18 +1,18 @@
 import style from "./GuessWords.module.css";
+import { WordSellector } from './guessWords/GuessWords'
 
-export function GuessWords({selectedWord, correctLetters}) {
+export function GuessWords(params) {
     return (
         <div className={style.word}>
-            {selectedWord.split('').map((letter, index) => {
-                return (
-                    <span className={style.letter} key={index}>
-                    {correctLetters.includes(letter)
+            {WordSellector.split('').map((letter, index) =>
+                <span className={style.letter} key={index}>
+                    {params.data.includes(letter)
                         ? letter
                         : ''
                     }
-                    </span>
-                ) 
-            })}
+                </span>
+            )}
+
         </div>
     );
 }
