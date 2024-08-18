@@ -1,9 +1,9 @@
 import { Header } from './components/header/Header';
 import { Scoreboard } from './components/scoreboard/Scoreboard';
 // import { Hangman } from './components/hangmanImg/HangmanImg';
-import { GuessWords } from './components/guessWords/GuessWords';
-
-import { countries } from "./data/words.js"
+// import { GuessWords } from './components/guessWords/GuessWords';
+import { Keyboard } from './components/keyboard/Keyboard';
+// import { countries } from "./data/words.js"
 
 function App() {
   return (
@@ -11,7 +11,8 @@ function App() {
       <Header />
       <Scoreboard />
       {/* <Hangman/> */}
-      <GuessWords data={countries} />
+      {/* <GuessWords data={countries} /> */}
+      <Keyboard />
     </>
     
   );

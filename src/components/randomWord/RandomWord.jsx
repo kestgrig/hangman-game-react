@@ -1,3 +1,3 @@
-import { randomCountries } from "./data/words.js";
+// import { randomCountries } from '/data/words.js';
 
-export const randomWord = randomCountries[Math.floor(Math.random() * randomCountries.length)].split('');
+// export const randomWord = randomCountries[Math.floor(Math.random() * randomCountries.length)].split('');
