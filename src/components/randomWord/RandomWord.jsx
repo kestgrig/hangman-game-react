@@ -1,7 +1,7 @@
-import { words } from '../data/words.js';
+import { countries } from '../data/words.js';
 
 export function getRandomWord() {
-    const randomWord = words[Math.floor(Math.random() * words.length)];
+    const randomWord = countries[Math.floor(Math.random() * countries.length)];
     return (
         randomWord.text.toUpperCase()
     );

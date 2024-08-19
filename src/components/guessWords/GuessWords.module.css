@@ -1,0 +1,9 @@
+.word {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 32px;
+}
+.letter {
+    margin: 10px 0;
+}
