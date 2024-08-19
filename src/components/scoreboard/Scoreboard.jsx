@@ -7,7 +7,7 @@ export function Scoreboard (props) {
 
     return (
         <div className={style.mainScoreboard}>
-            <p>Games Played: {{wins} + {losses}}</p>
+            <p>Games Played: {wins + losses}</p>
             <p>Wins: {wins}</p>
             <p>Losses: {losses}</p>      
          </div>

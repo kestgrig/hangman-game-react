@@ -20,7 +20,7 @@ function App() {
 
   useEffect(() => 
     {const handleKeydown = (e) => {
-      if (!gameOver && /^[a-zA-Z]$/.test(e.key)) {
+      if (!gameOver && /^[A-Z]$/.test(e.key)) {
         handleGuess(e.key.toUpperCase());
       }
     };
@@ -67,16 +67,18 @@ function App() {
   };
 
   const resetGame = () => {
-    resetWord();
+    resetWord(RandomWord());
     setGuessedLetters([]);
     setLives(6);
     setGameOver(false);
-    setWin(false);
+    localStorage.removeItem('wins');
+    localStorage.removeItem('losses')
   };
 
   const displayedWord = word
     ? word.split('').map((letter) => guessedLetters.includes(letter) ? letter : '_').join(' ')
-    : '';
+    : ''
+
   return (
     <div className="game-container">
       <Header />
