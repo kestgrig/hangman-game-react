@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-
+import { LivesLeft } from './components/livesLeft/LivesLeft';
 import { Header } from './components/header/Header';
 import { Scoreboard } from './components/scoreboard/Scoreboard';
 import { HangmanImg } from './components/hangmanImg/HangmanImg';
@@ -40,8 +40,8 @@ useEffect(() => {
       <Header />
       <Scoreboard />
       <HangmanImg lives={lives} />
-      {/* <LivesLeft lives={lives} /> */}
       <GuessWords word={word} guessedLetters={guessedLetters} />
+      <LivesLeft lives={lives} />
       <Keyboard word={word} guessedLetters={guessedLetters} onLetterClick={handleLetterClick} />
       {(gameLost || gameWon) && <ButtonRestart onRestart={handleRestart} />}
     </>
