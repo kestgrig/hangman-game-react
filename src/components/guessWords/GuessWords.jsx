@@ -1,19 +1,22 @@
-// import style from "./GuessWords.module.css";
-// // import { Wordsellector } from '../randomWord/RandomWord'
+ /* eslint-disable react/prop-types */
 
-// export function GuessWords(params) {
-//     return (
-//         <div className={style.word}>
-//             {Wordsellector.split('').map((letter, index) =>
-//                 <span className={style.letter} key={index}>
-//                     {params.data.includes(letter)
-//                         ? letter
-//                         : ''
-//                     }
-//                 </span>
-//             )}
+import style from "./GuessWords.module.css";
 
-//         </div>
-//     );
-// }
+export function GuessWords(props) {
+    const {word, guessedLetters} = props;
+
+    return (
+        <div className={style.word}>
+            {word.split('').map((letter, index) =>
+                <span className={style.letter} key={index}>
+                    {guessedLetters.includes(letter)
+                        ? letter
+                        : '_'
+                    }
+                </span>
+            )}
+
+        </div>
+    );
+}
 

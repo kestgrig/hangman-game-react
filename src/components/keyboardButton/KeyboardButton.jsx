@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';
+/* eslint-disable react/prop-types */
 
 export function KeyboardButton(props) {
     const { text, clickHandler } = props;
@@ -7,7 +7,3 @@ export function KeyboardButton(props) {
     );
 }
 
-KeyboardButton.propTypes = {
-    text: PropTypes.string.isRequired,
-    clickHandler: PropTypes.func.isRequired,
-};

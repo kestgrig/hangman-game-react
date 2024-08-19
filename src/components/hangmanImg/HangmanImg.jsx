@@ -1,6 +1,8 @@
+ /* eslint-disable react/prop-types */
+
 import style from './HangmanImg.module.css';
 import { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
+
 
 
 import ImgGallows from '/img/imggallows.png'
@@ -36,8 +38,3 @@ export function HangmanImg ({ lives }) {
         </div>
     );
 }
-
-
-HangmanImg.propTypes = {
-    lives: PropTypes.number.isRequired,
-};
