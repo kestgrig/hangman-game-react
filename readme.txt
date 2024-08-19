@@ -1,10 +1,6 @@
 Kartuvės
 Klientas nori galėti žaisti žaidimą, kuriame reikia atspėti paslėptą žodį.
 
-Dizainai įkvėpimui
-https://www.pinterest.com/pin/390405861466166055/
-https://www.pinterest.com/pin/523895369169002455/
-https://cdn.tutsplus.com/cdn-cgi/image/width=478/mobile/uploads/2014/01/android_hangman_game_complete.png
 Vertinimas
 Pirminės sąlygos, kurios lemia ar kodas bus toliau vertinamas
 nėra nuorodos į repozitoriją su projekto kodu - 0 balų;

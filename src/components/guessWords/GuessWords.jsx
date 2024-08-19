@@ -7,15 +7,14 @@ export function GuessWords(props) {
 
     return (
         <div className={style.word}>
-            {word.split('').map((letter, index) => (
-                <span className={style.letter} key={index}>
-                    {guessedLetters.includes(letter)
-                        ? letter 
-                        : '_'
-                    }
+                <span className={style.letter}> 
+                    {word.split('').map(letter => 
+                        guessedLetters.includes(letter) 
+                            ? letter 
+                            : '_')
+                        .join(' ')
+                    };
                 </span>
-            ))}
-
         </div>
     );
 }
