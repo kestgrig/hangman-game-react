@@ -1,17 +1,23 @@
+import { useState } from 'react';
+
+
 import { Header } from './components/header/Header';
 import { Scoreboard } from './components/scoreboard/Scoreboard';
-// import { Hangman } from './components/hangmanImg/HangmanImg';
+import { HangmanImg } from './components/hangmanImg/HangmanImg';
 // import { GuessWords } from './components/guessWords/GuessWords';
 import { Keyboard } from './components/keyboard/Keyboard';
 // import { countries } from "./data/words.js"
 
 function App() {
+  const [lives, setLives] = useState(6);
+
   return (
     <>
       <Header />
       <Scoreboard />
-      {/* <Hangman/> */}
+      <HangmanImg lives={lives}/>
       {/* <GuessWords data={countries} /> */}
+      
       <Keyboard />
     </>
     
