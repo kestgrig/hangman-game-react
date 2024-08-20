@@ -7,7 +7,7 @@ _game where spelling world countries_
 
 This project is for educational porpuses only. Pull request are welcome, but priority for project authors! Thank you for your cooperation!
 
-Site published at: https://kestgrig.github.io/hangman-game-react/
+Site published at: https://github.com/kestgrig/hangman-game-react
 
 ## 🎯 Project features/goals
 
@@ -37,7 +37,7 @@ Would like to run this project locally? Open terminal and follow these steps:
 
 1. Clone the repo to your selected folder
     ```sh
-    git clone https://github.com/kestgrig/hangman-game-react .
+    git clone https://github.com/kestgrig/hangman-game-react
     ```
 2. Install NPM packages
     ```sh
@@ -56,3 +56,11 @@ Would like to run this project locally? Open terminal and follow these steps:
 ## 🤓 Authors
 
 Kestutis: [Github](https://github.com/kestgrig)
+
+## ⚠️ License
+
+Distributed under the MIT License. See LICENSE.txt for more information.
+
+## 🔗 Other resources
+
+No other resources.
