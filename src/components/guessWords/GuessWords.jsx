@@ -5,17 +5,13 @@ import style from "./GuessWords.module.css";
 export function GuessWords(props) {
     const {word, guessedLetters} = props;
 
+    const displayedWord = word.split('').map((letter) =>
+        guessedLetters.includes(letter) ? letter : '_'
+    ).join(' ');
 
-    return (
-        <div className={style.word}>
-                <span className={style.letter}> 
-                    {word.split('').map(letter => 
-                        guessedLetters.includes(letter) 
-                            ? letter 
-                            : '_')
-                        .join(' ')
-                    };
-                </span>
+       return (
+        <div className={style.wordDisplay}>
+            {displayedWord}
         </div>
     );
 }

@@ -20,7 +20,7 @@ function App() {
 
   useEffect(() => 
     {const handleKeydown = (e) => {
-      if (!gameOver && /^[A-Z]$/.test(e.key)) {
+      if (!gameOver && /^[a-zsdA-Z]$/.test(e.key)) {
         handleGuess(e.key.toUpperCase());
       }
     };
@@ -28,9 +28,16 @@ function App() {
     window.addEventListener('keydown', handleKeydown);
 
     return () => window.removeEventListener('keydown', handleKeydown);
-  }, [gameOver, guessedLetters]);
+  }, [gameOver, guessedLetters, handleGuess]);
     
-  const handleGuess = (letter) => {
+  useEffect(() => {
+    localStorage.removeItem('wins');
+    localStorage.removeItem('losses');
+    setWins(0);
+    setLosses(0);
+  }, []);
+
+  const handleGuess = useCallback((letter) => {
     setGuessedLetters((prevGuessedLetters) => {
       if (gameOver || prevGuessedLetters.includes(letter)) 
         return prevGuessedLetters;
@@ -71,13 +78,26 @@ function App() {
     setGuessedLetters([]);
     setLives(6);
     setGameOver(false);
+    setWin(false);
     localStorage.removeItem('wins');
-    localStorage.removeItem('losses')
+    localStorage.removeItem('losses');
   };
 
   const displayedWord = word
-    ? word.split('').map((letter) => guessedLetters.includes(letter) ? letter : '_').join(' ')
-    : ''
+    ? word.split('').map((letter) => 
+      guessedLetters.includes(letter) ? letter : '_'
+      ).join(' ')
+    : '';
+
+  <Keyboard
+  handleGuess={handleGuess}
+  guessedLetters={guessedLetters}
+  word={word}
+  disabled={gameOver}
+  />
+
+  console.log('word:', word);
+  console.log('guessedLetters:', guessedLetters);
 
   return (
     <div className="game-container">
@@ -94,6 +114,8 @@ function App() {
         </div>
       )}
     </div>
+    
+
     
   );
 }

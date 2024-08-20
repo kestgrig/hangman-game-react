@@ -5,14 +5,35 @@ import { KeyboardButton } from '../keyboardButton/KeyboardButton';
 
 export function Keyboard (props) {
     const keyboardSymbols = 'qwertyuiopasdfghjklzxcvbnm'.toUpperCase();
-    const { handleGuess, disabled } = props;
+    const { handleGuess, guessedLetters, word, disabled } = props;
 
-
+    function getLetterStatus (letter) {
+        if (!guessedLetters || !word) {
+            return ''; // tuscia eilute jei 'guessedLetters' arba 'word' nera
+        }
+        
+        if (!guessedLetters.includes(letter)) {
+            return ''; // tuscia eilute jei raide nespeta
+        }
+        return (        
+            word.includes(letter) //ar raide yra zodyje
+            ? 'correct' 
+            : 'incorrect'
+        )
+    };
     return (
         <div className={style.keyboard}>
             {keyboardSymbols.split('').map(symbol =>
-                <KeyboardButton key={symbol} text={symbol} clickHandler={handleGuess} disabled={disabled}/>)}
+                <KeyboardButton 
+                    key={symbol} 
+                    text={symbol} 
+                    clickHandler={handleGuess} 
+                    status={getLetterStatus(symbol)} 
+                    disabled={disabled || guessedLetters.includes(symbol)}
+                />
+            )}
         </div>
     );
 }
+
 
