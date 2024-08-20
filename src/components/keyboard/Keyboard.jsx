@@ -8,19 +8,12 @@ export function Keyboard (props) {
     const { handleGuess, guessedLetters, word, disabled } = props;
 
     function getLetterStatus (letter) {
-        if (!guessedLetters || !word) {
-            return ''; // tuscia eilute jei 'guessedLetters' arba 'word' nera
-        }
-        
         if (!guessedLetters.includes(letter)) {
             return ''; // tuscia eilute jei raide nespeta
         }
-        return (        
-            word.includes(letter) //ar raide yra zodyje
-            ? 'correct' 
-            : 'incorrect'
-        )
+        return word.includes(letter) ? 'correct' : 'incorrect' //ar raide yra zodyje
     };
+    
     return (
         <div className={style.keyboard}>
             {keyboardSymbols.split('').map(symbol =>

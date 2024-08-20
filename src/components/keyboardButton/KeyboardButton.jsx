@@ -1,12 +1,13 @@
 /* eslint-disable react/prop-types */
+import style from'./KeyboardButton.module.css';
 
 export function KeyboardButton(props) {
     const { text, clickHandler, disabled, status } = props;
     function getButtonStyle () {
         if (status === 'correct') 
-            return 'btnCorrect';
+            return style.btnCorrect;
         if (status === 'incorrect') 
-            return 'btnIncorrect';
+            return style.btnIncorrect;
         return 'btn';
     };
 

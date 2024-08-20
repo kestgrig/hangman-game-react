@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 
 import { LivesLeft } from './components/livesLeft/LivesLeft';
 import { Header } from './components/header/Header';
@@ -10,32 +10,13 @@ import { RandomWord } from './components/randomWord/RandomWord';
 
 
 function App() {
-  const [ word, resetWord ] = useState(RandomWord());
+  const [word, resetWord] = useState(RandomWord());
   const [guessedLetters, setGuessedLetters] = useState([]); //naudoja iskart kaip random zodi
   const [lives, setLives] = useState(6);
   const [gameOver, setGameOver] = useState(false); 
   const [win, setWin] = useState(false);
   const [wins, setWins] = useState(() => parseInt(localStorage.getItem('wins')) || 0);
   const [losses, setLosses] = useState(() => parseInt(localStorage.getItem('losses')) || 0);
-
-  useEffect(() => 
-    {const handleKeydown = (e) => {
-      if (!gameOver && /^[a-zsdA-Z]$/.test(e.key)) {
-        handleGuess(e.key.toUpperCase());
-      }
-    };
-
-    window.addEventListener('keydown', handleKeydown);
-
-    return () => window.removeEventListener('keydown', handleKeydown);
-  }, [gameOver, guessedLetters, handleGuess]);
-    
-  useEffect(() => {
-    localStorage.removeItem('wins');
-    localStorage.removeItem('losses');
-    setWins(0);
-    setLosses(0);
-  }, []);
 
   const handleGuess = useCallback((letter) => {
     setGuessedLetters((prevGuessedLetters) => {
@@ -71,33 +52,40 @@ function App() {
 
       return newGuessedLetters;
     });
-  };
+  }, [gameOver, word]);
 
-  const resetGame = () => {
+  useEffect(() => 
+    {const handleKeydown = (e) => {
+      if (!gameOver && /^[a-zsdA-Z]$/.test(e.key)) {
+        handleGuess(e.key.toUpperCase());
+      }
+    };
+
+    window.addEventListener('keydown', handleKeydown);
+
+    return () => window.removeEventListener('keydown', handleKeydown);
+  }, [gameOver, guessedLetters, handleGuess]);
+    
+  useEffect(() => {
+    // isvalau localStorage ir nustatau pradine reiksme
+    localStorage.removeItem('wins');
+    localStorage.removeItem('losses');
+    setWins(0);
+    setLosses(0);
+  }, []);
+
+  function resetGame () {
     resetWord(RandomWord());
     setGuessedLetters([]);
     setLives(6);
     setGameOver(false);
     setWin(false);
-    localStorage.removeItem('wins');
-    localStorage.removeItem('losses');
   };
 
-  const displayedWord = word
-    ? word.split('').map((letter) => 
-      guessedLetters.includes(letter) ? letter : '_'
-      ).join(' ')
-    : '';
+  const displayedWord = word.split('').map((letter) => 
+    guessedLetters.includes(letter) ? letter : '_'
+  ).join(' ');
 
-  <Keyboard
-  handleGuess={handleGuess}
-  guessedLetters={guessedLetters}
-  word={word}
-  disabled={gameOver}
-  />
-
-  console.log('word:', word);
-  console.log('guessedLetters:', guessedLetters);
 
   return (
     <div className="game-container">
@@ -106,7 +94,7 @@ function App() {
       <Gallows lives={lives} />
       <GuessWords word={displayedWord} guessedLetters={guessedLetters} />
       <LivesLeft lives={lives} />
-      <Keyboard handleGuess={handleGuess} disabled={gameOver} />
+      <Keyboard handleGuess={handleGuess} guessedLetters={guessedLetters} word={word} disabled={gameOver} />
       {gameOver && (
         <div className="game-over-message">
           <p>{win ? 'Congratulations! You won!' : 'Game Over! You lost!'}</p>
@@ -114,9 +102,6 @@ function App() {
         </div>
       )}
     </div>
-    
-
-    
   );
 }
 
