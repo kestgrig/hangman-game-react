@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
+import styles from './App.module.css';
 
 import { LivesLeft } from './components/livesLeft/LivesLeft';
 import { Header } from './components/header/Header';
@@ -88,19 +89,21 @@ function App() {
 
 
   return (
-    <div className="game-container">
+    <div className={styles.gameContainer}>
       <Header />
-      <Scoreboard wins={wins} losses={losses} />
-      <Gallows lives={lives} />
-      <GuessWords word={displayedWord} guessedLetters={guessedLetters} />
-      <LivesLeft lives={lives} />
-      <Keyboard handleGuess={handleGuess} guessedLetters={guessedLetters} word={word} disabled={gameOver} />
-      {gameOver && (
-        <div className="game-over-message">
-          <p>{win ? 'Congratulations! You won!' : 'Game Over! You lost!'}</p>
-          <button onClick={resetGame}>Start a new game</button>
-        </div>
-      )}
+      <div className={styles.centeredContent}>
+        <Scoreboard wins={wins} losses={losses} />
+        <Gallows lives={lives} />
+        <GuessWords word={displayedWord} guessedLetters={guessedLetters} />
+        <LivesLeft lives={lives} />
+        <Keyboard handleGuess={handleGuess} guessedLetters={guessedLetters} word={word} disabled={gameOver} />
+        {gameOver && (
+          <div className={styles.gameMessage}>
+            <p>{win ? 'Congratulations! You won!' : 'Game Over! You lost!'}</p>
+            <button className={styles.newGameButton} onClick={resetGame}>Start a new game</button>
+          </div>
+        )}
+      </div>
     </div>
   );
 }

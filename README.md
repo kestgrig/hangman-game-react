@@ -53,6 +53,12 @@ Would like to run this project locally? Open terminal and follow these steps:
     ```
 4. Open the link from the terminal
 
+## ✍️ Usage
+
+-   Start the game by clicking on the letters to guess the word.
+-   You have 6 attemts to guess the correct word.
+-   After the game ends, click "Start a new game".
+
 ## 🤓 Authors
 
 Kestutis: [Github](https://github.com/kestgrig)
