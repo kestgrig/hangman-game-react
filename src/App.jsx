@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import styles from './App.module.css';
+import background from '../img/worldsmap.jpg'
 
 import { LivesLeft } from './components/livesLeft/LivesLeft';
 import { Header } from './components/header/Header';
@@ -89,22 +90,25 @@ function App() {
 
 
   return (
-    <div className={styles.gameContainer}>
-      <Header />
-      <div className={styles.centeredContent}>
-        <Scoreboard wins={wins} losses={losses} />
-        <Gallows lives={lives} />
-        <GuessWords word={displayedWord} guessedLetters={guessedLetters} />
-        <LivesLeft lives={lives} />
-        <Keyboard handleGuess={handleGuess} guessedLetters={guessedLetters} word={word} disabled={gameOver} />
-        {gameOver && (
-          <div className={styles.gameMessage}>
-            <p>{win ? 'Congratulations! You won!' : 'Game Over! You lost!'}</p>
-            <button className={styles.newGameButton} onClick={resetGame}>Start a new game</button>
-          </div>
-        )}
+    <>
+      <div className={styles.gameContainer} style={{backgroundImage: `url(${background}`, height:'720px', width:'100%'}}>
+        <Header />
+        <div className={styles.centeredContent}>
+          <Scoreboard wins={wins} losses={losses} />
+          <Gallows lives={lives} />
+          <GuessWords word={displayedWord} guessedLetters={guessedLetters} />
+          <LivesLeft lives={lives} />
+          <Keyboard handleGuess={handleGuess} guessedLetters={guessedLetters} word={word} disabled={gameOver} />
+          {gameOver && (
+            <div className={styles.gameMessage}>
+              <p className={styles.game}>{win ? 'Congratulations! You won!' : `Game Over! You lost! The Country was
+               ${word}`}</p>
+              <button className={styles.newGameButton} onClick={resetGame}>Start a new game</button>
+            </div>
+          )}
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 

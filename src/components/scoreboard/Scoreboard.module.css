@@ -1,4 +1,4 @@
-.mainScoreboard {
+.played {
     color: white;
 }
 
@@ -8,4 +8,10 @@ p:nth-child(2) {
 
 p:nth-child(3) {
     color: rgba(246, 19, 19, 0.878);
+}
+
+.mainScoreboard {
+    display: flex;
+    gap: 10px;
+    margin: 20px 100px;
 }
