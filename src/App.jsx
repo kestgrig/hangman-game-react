@@ -102,7 +102,7 @@ function App() {
           {gameOver && (
             <div className={styles.gameMessage}>
               <p className={styles.game}>{win ? 'Congratulations! You won!' : `Game Over! You lost! The Country was
-               ${word}`}</p>
+                ${word}`}</p>
               <button className={styles.newGameButton} onClick={resetGame}>Start a new game</button>
             </div>
           )}
