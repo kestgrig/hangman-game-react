@@ -1,7 +1,4 @@
 Kartuvės
-Klientas nori galėti žaisti žaidimą, kuriame reikia atspėti paslėptą žodį.
-
-Vertinimas
 Pirminės sąlygos, kurios lemia ar kodas bus toliau vertinamas
 nėra nuorodos į repozitoriją su projekto kodu - 0 balų;
 repozitorijoje nėra kodo - 0 balų;
